@@ -7,4 +7,8 @@ urlpatterns = [
     path(route='',
          view=views.Inicio.as_view(),
          name='index'),
+
+    path(route='contenido',
+         view=views.Contenido.as_view(),
+         name='contenido'),
 ]

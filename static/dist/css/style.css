@@ -1,0 +1,69 @@
+/*estas son las propiedades de la tabla editable en la confección de anticipos*/
+.input_edit,.select_edit {
+  /*min-width: 50px !important;
+  transition: width 0.20s;*/
+  max-width: 99.99% !important;
+  text-align: center;
+  min-width: 100%;
+  padding: 0.2px;
+  line-height:30px;
+  border: none;
+}
+/*estas son las propiedades del input para ingresar el número de comisión*/
+.input_num{
+  height: 35px;
+  margin: 0;
+  overflow: hidden;
+}
+
+.input_num input{
+  padding: 0px;
+  height: 28.4px;
+  padding-left: 8px;
+  padding-top: 4px;
+  border: none;
+  outline: none;
+}
+
+.input_num label{
+  position: absolute;
+  bottom: 0px;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-bottom: 1px solid;
+}
+
+.input_num label::after{
+  content: "";
+  left: 0px;
+  bottom: -1px;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-bottom: 3px solid #007bff;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.content-name{
+  position:absolute;
+  bottom: 2px;
+  left: 0px;
+  transition: all 0.04s ease;
+}
+
+.input_num input:focus + .label-name .content-name,
+.input_num input:valid + .label-name .content-name{
+  transform: translateY(-45%);
+  font-size: 14px;
+  color: #007bff;
+
+}
+
+.input_num input:focus + .label-name::after,
+.input_num input:valid + .label-name::after{
+  transform: translateX(0%);
+}
+/*----------------------------------------------------------------------*/
