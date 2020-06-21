@@ -1,4 +1,8 @@
 from django.contrib import admin
-from Contenidos.models import Documento #importamos el modelo  
+from .models import Documento #importamos el modelo  
 # Register your models here.
-admin.site.register(Documentos)#lo registramos en el admin de django
+
+class DocumentosAdmin(admin.ModelAdmin):
+    search_fields = ['created_date']
+
+admin.site.register(Documento,DocumentosAdmin)#lo registramos en el admin de django
