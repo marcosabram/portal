@@ -8,7 +8,7 @@ urlpatterns = [
          view=views.Inicio.as_view(),
          name='index'),
 
-    path(route='contenido',
+    path(route='contenido/<pk>/',
          view=views.Contenido.as_view(),
          name='contenido'),
 ]

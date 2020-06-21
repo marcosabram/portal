@@ -26,90 +26,56 @@
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
+                    {%for documento in documentos%}
                     <div class="col-lg-3 col-6">
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>Título</h3>
-                                <p>Un poco de texto</p>
+                                <h3>{{documento.titulo|title|truncatechars:10}}</h3>
+                                <p>{{documento.texto|capfirst|truncatechars:16}}...</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-bag"></i>
                             </div>
-                            <a href="{% url 'contenidos:contenido' %}" class="small-box-footer">Consultar <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="{% url 'contenidos:contenido' documento.id %}" class="small-box-footer">Consultar <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
+                      
                     </div>
-                    <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-info">
-                            <div class="inner">
-                                <h3>Título</h3>
-                                <p>Un poco de texto</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-bag"></i>
-                            </div>
-                            <a href="#" class="small-box-footer">Consultar <i class="fas fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-                    <!-- ./col -->
-                    <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-info">
-                            <div class="inner">
-                                <h3>Título</h3>
-                                <p>Un poco de texto</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-bag"></i>
-                            </div>
-                            <a href="#" class="small-box-footer">Consultar <i class="fas fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-info">
-                            <div class="inner">
-                                <h3>Título</h3>
-                                <p>Un poco de texto</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-bag"></i>
-                            </div>
-                            <a href="#" class="small-box-footer">Consultar <i class="fas fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-info">
-                            <div class="inner">
-                                <h3>Título</h3>
-                                <p>Un poco de texto</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-bag"></i>
-                            </div>
-                            <a href="#" class="small-box-footer">Consultar <i class="fas fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-info">
-                            <div class="inner">
-                                <h3>Título</h3>
-                                <p>Un poco de texto</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-bag"></i>
-                            </div>
-                            <a href="#" class="small-box-footer">Consultar <i class="fas fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
+                    {%endfor%}
                     <!-- ./col -->
                 </div>
                 <!-- /.row -->
 
             </div><!-- /.container-fluid -->
+            <div class="row">
+                <div class=" paginations-steps">
+                    <nav aria-label="Navegación de páguina">
+                        <ul class="pagination  ">
+                            {% if page_obj.has_previous %}
+                            <li class="page-item"><a class="page-link" href="?page=1">1</a></li>
+                            <li class="page-item"><a class="page-link"
+                                    href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+                            </li>
+                            {% endif %}
+    
+                            <li class="page-item active">
+                                <span class="page-link">
+                                    {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+                                    <span class="sr-only">(current)</span>
+                                </span>
+                            </li>
+                            {% if page_obj.has_next %}
+                            <li class="page-item"><a class="page-link"
+                                    href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+                            </li>
+                            <li class="page-item"><a class="page-link"
+                                    href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                </div>
+            </div>
         </section>
         <!-- /.row -->
     </div>
