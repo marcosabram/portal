@@ -1,0 +1,59 @@
+{% extends "index.html" %}
+
+{% block content %}
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Título</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                    <li class="breadcrumb-item active">Título</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <form id="myform" target="_blank" method="POST" class="form-horizontal"
+                    action="#" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="card card-primary card-outline">
+                        <div class="card-header">
+                            <label class="card-title">Título</label>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <div class="card-body pad">
+                                <div class="mb-3">
+                                  <p>La labor de los desarrolladores se percibe en todas partes: hay toneladas de trabajo básico y de 'limpieza' bastante necesario, pero también hay mucho trabajo aplicado al sistema de archivos y, obviamente, las habituales actualizaciones de controladores; además de documentación y trabajo de arquitectura. [El 20%] es realmente un porcentaje bastante grande</p>
+                                </div>
+                                
+                              </div>
+                            
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer">
+                            
+                        </div>
+                </form>
+                <!-- /.card-footer -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+    </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+
+{% endblock %}
