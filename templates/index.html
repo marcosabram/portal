@@ -108,9 +108,25 @@
                with font-awesome or any other icon font library -->
 
             <li>
+<<<<<<< HEAD
               <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Nuevo
+=======
+              <div class="btn-group mt-2 ml-3">
+                <button type="button" class="btn btn-info"><i class="fas fa-plus"></i> Nuevo</button>
+                <button type="button" class="btn btn-info dropdown-toggle dropdown-icon" data-toggle="dropdown"
+                  aria-expanded="false">
+                  <span class="sr-only">Toggle Dropdown</span>
+                  <div class="dropdown-menu" role="menu" x-placement="bottom-start"
+                    style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-1px, 37px, 0px);">
+                    <a class="dropdown-item" href="{% url 'contenidos:crear_documento'%}">Documento</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Separated link</a>
+                  </div>
+>>>>>>> 5a1eb588b04510ae4a4e74b9b65ea98fe5009c17
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <a class="dropdown-item" href="#">Publicación</a>

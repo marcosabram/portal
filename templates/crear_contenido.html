@@ -23,9 +23,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <form id="myform" target="_blank" method="POST" class="form-horizontal" action="#"
-                    enctype="multipart/form-data">
+                <form id="myform" method="POST" class="form-horizontal" enctype="multipart/form-data">
                     {% csrf_token %}
+                    <input type="hidden"name="grupo" value="{{grupo}}" >
                     <div class="card card-primary card-outline">
                         <div class="card-header">
                             <input type="text" name="titulo" placeholder="Titulo"> 
