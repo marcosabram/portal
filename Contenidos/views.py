@@ -15,8 +15,6 @@ class Inicio(ListView):#lista todos los contenidos
     paginate_by=10
     ordering=['-modified_date']
 
-<<<<<<< HEAD
-=======
 class CrearDocumento(CreateView):
     model=Documento
     template_name='crear_contenido.html'
@@ -29,7 +27,6 @@ class CrearDocumento(CreateView):
         context['grupo']=user.groups.get().id
         return context
      
->>>>>>> 5a1eb588b04510ae4a4e74b9b65ea98fe5009c17
 
 class Contenido(TemplateView):
     template_name = 'contenido.html'
@@ -37,8 +34,10 @@ class Contenido(TemplateView):
 
 class EditarContenido(UpdateView):
     model = Documento
-    context_object_name='documentos'
+    context_object_name='documento'
     template_name='crear_contenido.html'
+    fields = ['titulo','texto']
+    success_url = reverse_lazy('contenidos:index')
 
 
 
