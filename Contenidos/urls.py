@@ -8,6 +8,10 @@ urlpatterns = [
          view=views.Inicio.as_view(),
          name='index'),
 
+     path(route='documento/',
+         view=views.CrearDocumento.as_view(),
+         name='crear_documento'), 
+
     path(route='contenido/<pk>/',
          view=views.Contenido.as_view(),
          name='contenido'),
