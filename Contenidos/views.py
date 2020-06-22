@@ -18,15 +18,15 @@ class Inicio(ListView):#lista todos los contenidos
 class CrearDocumento(CreateView):
     model=Documento
     template_name='crear_contenido.html'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('contenidos:index')
     fields=['titulo','texto','grupo']
 
-    def get_form_kwargs(self):
-        kwargs = super().get_form_kwargs()
-        #import pdb; pdb.set_trace()
-         
-        #kwargs.update({'data': self.object})
-        return kwargs
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user=self.request.user
+        context['grupo']=user.groups.get().id
+        return context
+     
 
 class Contenido(TemplateView):
     template_name = 'contenido.html'
