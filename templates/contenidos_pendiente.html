@@ -37,17 +37,12 @@
                             <div class="icon">
                                 <i class="ion ion-image"></i>
                             </div>
-                            {% ifequal user.tipo '1' %}
-                            <a href="{% url 'contenidos:ver_documento' documento.id %}"
-                                class="small-box-footer">Ver <i class="fas fa-arrow-circle-right"></i></a>
-                            {%else%}
-                            
-                            <a href="{% url 'contenidos:editar_contenido' documento.id %}"
-                                class="small-box-footer">Editar <i class="fas fa-arrow-circle-right"></i></a>
+
+                            <a href="{% url 'contenidos:aprobar_documento' documento.id %}"
+                                class="small-box-footer">Aprobar <i class="fas fa-arrow-circle-right"></i></a>
                             <a href="{% url 'contenidos:eliminar_documento' documento.id %}"
                                 class="small-box-footer bg-danger">Eliminar <i
                                     class="fas fa-arrow-circle-right"></i></a>
-                            {%endifequal%}
                         </div>
 
                     </div>
