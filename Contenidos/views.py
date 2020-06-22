@@ -15,9 +15,16 @@ class Inicio(ListView):#lista todos los contenidos
     ordering=['-modified_date']
 
 
-
-
 class Contenido(TemplateView):
     template_name = 'contenido.html'
+
+
+class EditarContenido(UpdateView):
+    model = Documento
+    context_object_name='documentos'
+    template_name='crear_contenido.html'
+
+
+
 
 

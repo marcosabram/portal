@@ -11,4 +11,8 @@ urlpatterns = [
     path(route='contenido/<pk>/',
          view=views.Contenido.as_view(),
          name='contenido'),
+
+    path(route='editar_contenido/<pk>/',
+         view=views.EditarContenido.as_view(),
+         name='editar_contenido'),
 ]

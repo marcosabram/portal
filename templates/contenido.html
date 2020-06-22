@@ -10,7 +10,7 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="{% url 'contenidos:index' %}">Inicio</a></li>
                     <li class="breadcrumb-item active">Título</li>
                 </ol>
             </div>
@@ -23,8 +23,6 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <form id="myform" target="_blank" method="POST" class="form-horizontal"
-                    action="#" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="card card-primary card-outline">
                         <div class="card-header">
@@ -42,9 +40,16 @@
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
-                            
-                        </div>
-                </form>
+                            <div class="float-right">
+                                <a type="button" class="btn btn-success" href="#"><i class="fas fa-edit"></i>
+                                    Editar</a>
+                                <!--<button type="submit" class="btn btn-primary"><i
+                                        class="fas fa-archive"></i>Archivar</button>-->
+                            </div>
+                            <!--<button type="reset" class="btn btn-danger"><i class="fas fa-times"></i> Descartar</button>-->
+                        </div>                            
+                    </div>
+                
                 <!-- /.card-footer -->
             </div>
             <!-- /.card -->
