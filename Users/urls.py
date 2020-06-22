@@ -6,5 +6,9 @@ from Users import views
 urlpatterns = [
     path(route='usuarios/',
         view=views.Usuarios.as_view(),
-        name='usuarios'), 
+        name='usuarios'),
+        
+    path(route='usuarios/<pk>/editar',
+        view=views.ActualizarPermiso.as_view(),
+        name='editar_usuario'), 
 ]
