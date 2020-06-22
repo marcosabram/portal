@@ -3,7 +3,8 @@ from django.urls import reverse, reverse_lazy
 from django.views.generic.edit import View
 from django.views.generic import TemplateView
 from django.views.generic.list import ListView
-from django.views.generic.edit import CreateView, DeleteView, UpdateView    
+from django.views.generic.edit import CreateView, DeleteView, UpdateView  
+from django.views.generic.detail import DetailView  
 from Users.models import User
 from Contenidos.models import Documento
 from django.contrib.auth.models import Group
@@ -22,6 +23,10 @@ class Inicio(ListView):#lista todos los contenidos
         grupoID=user.groups.get().id
         self.queryset=Documento.objects.filter(grupo=grupoID,aprobado=True)
         return super().get_queryset()
+
+class VerDocumento(DetailView):
+    model=Documento
+    template_name='contenido.html'
 
 class CrearDocumento(CreateView):
     model=Documento
@@ -61,7 +66,7 @@ class EliminarDocumento(DeleteView):
 class DocumentosPendientes(ListView):#lista todos los contenidos
     model=Documento
     context_object_name='documentos'
-    template_name='cards.html'
+    template_name='contenidos_pendiente.html'
     paginate_by=10
     ordering=['-modified_date']
 
