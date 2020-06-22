@@ -4,7 +4,7 @@ from django.views.generic.edit import View
 from django.views.generic import TemplateView
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView    
-from django.contrib.auth.models import User
+from Users.models import User
 from Contenidos.models import Documento
 
 # Create your views here.
@@ -19,7 +19,6 @@ class Inicio(ListView):#lista todos los contenidos
     def get_queryset(self):
         user=self.request.user
         grupoID=user.groups.get().id
-        #import pdb; pdb.set_trace()
         self.queryset=Documento.objects.filter(grupo=grupoID,aprobado=True)
         return super().get_queryset()
 
@@ -39,10 +38,11 @@ class CrearDocumento(CreateView):
         response = super().form_valid(form)
         user=self.request.user
         grupoID=user.groups.get().id
-        adminGrupo=User.objects.get(is_staff=True,groups__id=grupoID)
-        mensaje= user.get_full_name() + ' a creado una nueva publicacion'
-        import pdb; pdb.set_trace()
-        adminGrupo.email_user('Nueva Publicacion', mensaje, from_email=None)
+        if user.is_staff==False:
+            adminGrupo=User.objects.get(is_staff=True,groups__id=grupoID)
+            mensaje= user.get_full_name() + ' a creado una nueva publicacion.'
+            import pdb; pdb.set_trace()
+            adminGrupo.email_user('Nueva Publicacion', mensaje, from_email=None)
         return response
 
 
