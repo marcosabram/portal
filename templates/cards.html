@@ -6,12 +6,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Mis publicaciones</h1>
+                <h1>Mis documentos</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="{% url 'contenidos:index' %}">Inicio</a></li>
-                    <li class="breadcrumb-item active">Mis publicaciones</li>
+                    <li class="breadcrumb-item active">Mis documentos</li>
                 </ol>
             </div>
         </div>
@@ -31,17 +31,20 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>{{documento.titulo|title|truncatechars:10}}</h3>
-                                <p>{{documento.texto|capfirst|truncatechars:16}}...</p>
+                                <h3>{{documento.titulo|title|truncatechars:11}}</h3>
+                                <!--<p>{{documento.texto|capfirst|truncatechars:16}}...</p>-->
                             </div>
                             <div class="icon">
-                                <i class="ion ion-bag"></i>
+                                <i class="ion ion-image"></i>
                             </div>
-                            
-                            <a href="{% url 'contenidos:editar_contenido' documento.id %}" class="small-box-footer">Editar <i class="fas fa-arrow-circle-right"></i></a>
-                            <a href="{% url 'contenidos:editar_contenido' documento.id %}" class="small-box-footer bg-danger">Eliminar <i class="fas fa-arrow-circle-right"></i></a>
+
+                            <a href="{% url 'contenidos:editar_contenido' documento.id %}"
+                                class="small-box-footer">Editar <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="{% url 'contenidos:eliminar_documento' documento.id %}"
+                                class="small-box-footer bg-danger">Eliminar <i
+                                    class="fas fa-arrow-circle-right"></i></a>
                         </div>
-                      
+
                     </div>
                     {%endfor%}
                     <!-- ./col -->
@@ -57,7 +60,7 @@
                                         href="?page={{ page_obj.previous_page_number }}">Anterior</a>
                                 </li>
                                 {% endif %}
-        
+
                                 <li class="page-item active">
                                     <span class="page-link">
                                         {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
@@ -78,7 +81,7 @@
                 </div>
 
             </div><!-- /.container-fluid -->
-            
+
         </section>
         <!-- /.row -->
     </div>
