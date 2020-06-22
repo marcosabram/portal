@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    $("#mitabla").on("change", "select",function () {
+  /*  $("#mitabla").on("change", "select",function () {
         var form = $(this).closest("select")
         var div = document.getElementById(this.id);
         console.log(form);
@@ -13,5 +13,5 @@ $(document).ready(function () {
             success: function (data) { 
             }
         });
-        });
+        });*/
 })

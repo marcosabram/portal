@@ -7,8 +7,8 @@ urlpatterns = [
     path(route='usuarios/',
         view=views.Usuarios.as_view(),
         name='usuarios'),
-        
-    path(route='usuarios/<pk>/editar',
+
+    path(route='usuarios/<pk>/editar/',
         view=views.ActualizarPermiso.as_view(),
         name='editar_usuario'), 
 ]
