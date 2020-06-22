@@ -8,23 +8,28 @@ urlpatterns = [
          view=views.Inicio.as_view(),
          name='index'),
 
-     path(route='documentos/add',
+    path(route='documentos/add',
          view=views.CrearDocumento.as_view(),
          name='crear_documento'),
 
     path(route='documentos/<pk>/editar',
          view=views.EditarContenido.as_view(),
          name='editar_contenido'),
-         
+
     path(route='documentos/<pk>/eliminar',
          view=views.EliminarDocumento.as_view(),
          name='eliminar_documento'),
 
-     path(route='documentos/pendientes',
+    path(route='documentos/pendientes',
          view=views.DocumentosPendientes.as_view(),
-         name='documentos_pendientes'), 
+         name='documentos_pendientes'),
 
-     path(route='documentos/pendientes/<pk>/aprobar',
+    path(route='documentos/pendientes/<pk>/aprobar',
          view=views.AprobarDocumento.as_view(),
-         name='aprobar_documento'),       
+         name='aprobar_documento'),
+
+    path(route='usuarios',
+         view=views.Usuarios.as_view(),
+         name='usuarios'),
+
 ]

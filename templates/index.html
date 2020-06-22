@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="{% static 'plugins/jqvmap/jqvmap.min.css' %}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
-  
+
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="{% static 'plugins/overlayScrollbars/css/OverlayScrollbars.min.css' %}">
   <!-- summernote -->
@@ -104,7 +104,7 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-               <li class="nav-header"></li>
+            <li class="nav-header"></li>
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-plus-square"></i>
@@ -127,14 +127,56 @@
                   </a>
                 </li>
               </ul>
+            </li>
+            {%if user.is_staff%}
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-plus-square"></i>
+                <p>
+                  Contenidos
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{% url 'contenidos:documentos_pendientes' %}" class="nav-link">
+                    <i class="nav-icon fas fa-edit"></i>
+                    <p>Pendientes</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-calculator"></i>
+                    <p>Aprobados</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-plus-square"></i>
+                <p>
+                  Grupo
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{% url 'contenidos:usuarios' %}" class="nav-link">
+                    <i class="nav-icon fas fa-edit"></i>
+                    <p>Usuarios</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-calculator"></i>
+                    <p>Permisos</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            {%endif%}
           </ul>
-          {%if user.is_staff%}
-          <a href="{% url 'contenidos:documentos_pendientes' %}" class="nav-link">
-            <i class="nav-icon fas fa-plus-square"></i>
-            <p>
-              Contenidos Pendientes
-            </p>
-          </a>{%endif%}
         </nav>
         <!-- /.sidebar-menu -->
       </div>
@@ -148,7 +190,7 @@
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">
-      <strong><a href="#" >Contenidos</a></strong>
+      <strong><a href="#">Contenidos</a></strong>
       <div class="float-right d-none d-sm-inline-block">
         <b>La Pampa</b>
       </div>
