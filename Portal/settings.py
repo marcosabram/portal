@@ -121,3 +121,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.dreamhost.com'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = 'rhmatrixteam@gestion.rhmatrix.com'
+EMAIL_HOST_PASSWORD = 'agenciaBuffalo'
+DEFAULT_FROM_EMAIL = 'rhmatrixteam@gestion.rhmatrix.com'

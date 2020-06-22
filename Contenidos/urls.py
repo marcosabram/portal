@@ -19,4 +19,12 @@ urlpatterns = [
     path(route='documentos/<pk>/eliminar',
          view=views.EliminarDocumento.as_view(),
          name='eliminar_documento'),
+
+     path(route='documentos/pendientes',
+         view=views.DocumentosPendientes.as_view(),
+         name='documentos_pendientes'), 
+
+     path(route='documentos/pendientes/<pk>/editar',
+         view=views.AprobarDocumento.as_view(),
+         name='aprobar_documento'),       
 ]
