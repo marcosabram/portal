@@ -35,6 +35,11 @@ class EditarContenido(UpdateView):
     fields = ['titulo','texto']
     success_url = reverse_lazy('contenidos:index')
 
+class EliminarDocumento(DeleteView):
+    model=Documento
+    success_url = reverse_lazy('contenidos:index')
+    template_name='documento_confirm_delete.html'
+
 
 
 
