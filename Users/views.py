@@ -12,5 +12,6 @@ class Usuarios(ListView):#lista todos los contenidos
     def get_queryset(self):
         user=self.request.user
         grupoID=user.groups.get().id
-        self.queryset=User.objects.filter(grupo=grupoID)
+        #import pdb; pdb.set_trace()
+        self.queryset=User.objects.filter(groups=grupoID)
         return super().get_queryset()

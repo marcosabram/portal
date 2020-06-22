@@ -6,6 +6,7 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView    
 from Users.models import User
 from Contenidos.models import Documento
+from django.contrib.auth.models import Group
 
 # Create your views here.
 
@@ -41,7 +42,6 @@ class CrearDocumento(CreateView):
         if user.is_staff==False:
             adminGrupo=User.objects.get(is_staff=True,groups__id=grupoID)
             mensaje= user.get_full_name() + ' a creado una nueva publicacion.'
-            import pdb; pdb.set_trace()
             adminGrupo.email_user('Nueva Publicacion', mensaje, from_email=None)
         return response
 
@@ -77,10 +77,6 @@ class AprobarDocumento(UpdateView):
     template_name='aprobar_contenido.html'
     fields = ['aprobado']
     success_url = reverse_lazy('contenidos:documentos_pendientes')
-
-class Usuarios(TemplateView):
-    template_name = 'usuarios.html'
-
 
 
 

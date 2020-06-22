@@ -28,8 +28,4 @@ urlpatterns = [
          view=views.AprobarDocumento.as_view(),
          name='aprobar_documento'),
 
-    path(route='usuarios',
-         view=views.Usuarios.as_view(),
-         name='usuarios'),
-
 ]

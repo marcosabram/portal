@@ -39,16 +39,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for anticipo in anticipos %}
+                                {% for usuario in usuarios %}
                                 <tr>
-                                    <td>lunes 3</td>
-                                    <td>la pampa</td>
+                                    <td>{{usuario.first_name|title}} {{usuario.last_name|title}}</td>
+                                    <td>{{usuario.email}} </td>
                                     
                                     <td class="text-center">
-                                        <span class="table-remove">
-                                            <a target="_blank" href="#"
-                                                class="btn btn-success btn-rounded btn-sm my-0">Consultar</a>
-                                        </span>
+                                        {{form.tipo}}
                                     </td>
                                 </tr>
                                 {% endfor %}
