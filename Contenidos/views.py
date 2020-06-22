@@ -26,10 +26,6 @@ class CrearDocumento(CreateView):
         user=self.request.user
         context['grupo']=user.groups.get().id
         return context
-     
-
-class Contenido(TemplateView):
-    template_name = 'contenido.html'
 
 
 class EditarContenido(UpdateView):
