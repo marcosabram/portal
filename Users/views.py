@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from Users.models import User
-from django.views.generic.edit import UpdateView  
+from django.views.generic.edit import UpdateView
+from django.http import JsonResponse
+
 # Create your views here.
 
 class AjaxableResponseMixin:

@@ -32,8 +32,6 @@ $(document).ready(function () {
     height: 120,
   })
 
-  $('#editable-select').editableSelect();
-
   // A few jQuery helpers for exporting only
   jQuery.fn.pop = [].pop;
   jQuery.fn.shift = [].shift;

@@ -36,15 +36,15 @@
                                     <th class="text-center">Lector/Editor</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="mitabla">
                                 {% for usuario in usuarios %}
                                 <tr>
                                     <td>{{usuario.first_name|title}} {{usuario.last_name|title}}</td>
                                     <td>{{usuario.email}} </td>
                                     <td class="text-center">
-                                    <select id="permiso" onchange="actualizar({{usuario.id}}">
+                                    <select id="permiso" data-url="{% url 'users:editar_usuario' usuario.id %}">
                                             <option value='1'{% ifequal usuario.tipo '1' %} selected {%endifequal%} >Lector</option>
-                                            <option value='2' {% ifequal u  suario.tipo '2' %} selected {%endifequal%} >Editor</option>
+                                            <option value='2' {% ifequal usuario.tipo '2' %} selected {%endifequal%} >Editor</option>
                                         </select>
                                         
                                     </td>
@@ -64,7 +64,8 @@
 </section>
 <!-- /.content -->
 <script>
-    function actualizar(userID) {
+
+    /*function actualizar(userID) {
     var url = "/usuarios/" + userID + "/editar/";
     //tipo
     $.post(url, { tipo: 'True' },
@@ -75,7 +76,7 @@
                 $("#pre-selections").append("<tr id=" + data.pk + ">" + row + "</tr>")
                 $("#PS" + data.pk).after("<td id='S" + data.pk + "' class='col-md-1 text-center'> <a><i onclick='seleccionar(" + data.pk + ")'class='fa fa-check fa-2x light-violet' title='Seleccionar Postulante'></i></a></td> <td id='DP" + data.pk + "' class='col-md-1 text-center'><a><i onclick='eliminar_preSeleccion(" + data.pk + ")'class='fa fa-trash-o fa-2x light-violet' title='Eliminar Pre-Selección'></i></a></td>")
                 $("#PS" + data.pk).remove();*/
-            }
+            /*}
             else {
                 alert("Algo salio mal! Recarge la pagina y vuelva a intentarlo.");
             }
@@ -83,7 +84,8 @@
         }).fail(function () {
             alert("Algo salio mal! Recarge la pagina y vuelva a intentarlo.");
     })                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
-};
+};*/
+
 </script>       
                                                                                                                                                                                                                           
 <!-- /.content -->
