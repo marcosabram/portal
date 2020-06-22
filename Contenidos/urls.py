@@ -15,4 +15,8 @@ urlpatterns = [
     path(route='documentos/<pk>/editar',
          view=views.EditarContenido.as_view(),
          name='editar_contenido'),
+         
+    path(route='documentos/<pk>/eliminar',
+         view=views.EliminarDocumento.as_view(),
+         name='eliminar_documento'),
 ]
