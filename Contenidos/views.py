@@ -78,6 +78,9 @@ class AprobarDocumento(UpdateView):
     fields = ['aprobado']
     success_url = reverse_lazy('contenidos:documentos_pendientes')
 
+class Usuarios(TemplateView):
+    template_name = 'usuarios.html'
+
 
 
 
