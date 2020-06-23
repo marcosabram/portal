@@ -1,0 +1,17 @@
+crear un entorno virtual en la carpeta del proyecto 
+
+1-Intalar virtualenv 
+
+        root@pc:~$pip3 install virtualenv
+
+2-Crear el entorno virtual
+        
+        root@pc:~$virtualenv venv -p python3
+
+3-Activar el entorno virtual
+        
+        root@pc:~$source venv/bin/activate
+
+4-Luego instalar dijango desde el archivo requirements.txt con el siguiente comando dado que el projecto usa django2.2.6
+        
+        root@pc:~$pip3 install -r requirements.txt
